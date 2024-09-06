@@ -1,0 +1,9 @@
+RewriteEngine On 
+RewriteBase /studyroom
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://studyroom.com/$1 [R=301,L]
+RewriteBase /studyroom
+RewriteCond $1 !^(index\.php|resources|robots\.txt|static) [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/?$1 [L,QSA]
